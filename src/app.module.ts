@@ -21,11 +21,11 @@ import { UserModule } from './user/user.module';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        ssl: {
-          rejectUnauthorized: false, 
-        },
+      ssl: {
+        rejectUnauthorized: false, 
+      },
       autoLoadEntities: true,
-      synchronize: true,
+      synchronize: false,
     })
   ],
   controllers: [AppController],

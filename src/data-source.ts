@@ -13,8 +13,8 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_NAME || 'chat_db',
   entities: ['src/**/*.entity{.ts,.js}'],
   migrations: ['src/migrations/*{.ts,.js}'],
-    ssl: {
-    rejectUnauthorized: false, //
+  ssl: {
+    rejectUnauthorized: false, 
   },
   synchronize: false,
   logging: process.env.NODE_ENV === 'development',
