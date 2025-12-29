@@ -14,7 +14,7 @@ export class UserController {
   ) {
     return this.userService.createUser(createUserDto);
   }
-
+ 
   @Get(':username')
   async findByUsername(@Param('username') username: string) {
     return this.userService.findByUsername(username);
