@@ -19,4 +19,9 @@ export class UserController {
   async findByUsername(@Param('username') username: string) {
     return this.userService.findByUsername(username);
   }
+
+  @Get()
+  async findAll() {
+    return this.userService.findAll();
+  }
 }

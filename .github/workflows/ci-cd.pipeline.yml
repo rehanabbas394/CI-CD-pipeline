@@ -27,5 +27,22 @@ jobs:
         - name: Build Application
           run: npm run build
 
+        - name: Deploy to EC2
+          uses: appleboy/ssh-action@v0.1.6
+          with:
+            host: ${{ secrets.EC2_HOST }}
+            username: ${{ secrets.EC2_USER }}
+            key: ${{ secrets.EC2_KEY }}
+            script: |
+              cd /home/ubuntu/CI-CD-pipeline
+              git reset --hard
+              git pull origin main
+              npm install --legacy-peer-deps
+              npm run build
+              pm2 stop chat-backend || true
+              pm2 start dist/main.js --name chat-backend
+              pm2 save
+
+
 
 
